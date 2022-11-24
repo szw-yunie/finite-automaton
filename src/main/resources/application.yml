@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: fa
+  datasource:
+    #指定Driver，有了Driver才能访问数据库
+    driver-class-name: org.h2.Driver
+    #url: jdbc:h2:file:~/test
+    url: 'jdbc:h2:mem:'
+    #用户名密码不需要改，都是临时值
+    username: san
+    password: ''
+  h2:
+    console:
+      #default true。咱也可以用命令行访问好数据库
+      enabled: true
+      #console url。Spring启动后，可以访问 http://127.0.0.1:8080/h2-console 查看数据库
+      path: /h2-console
+      settings:
+        trace: true
+        web-allow-others: true
+  sql:
+    init:
+      #插入数据的MySql语句的位置
+      data-locations: classpath:data.sql
+      #创建表的MySql语句位置
+      schema-locations: classpath:schema.sql
